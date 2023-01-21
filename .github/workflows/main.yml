@@ -62,7 +62,8 @@ jobs:
         username: ${{ secrets.USER }}
         passphrase: ${{ secrets.PASSPHRASE }}
         key: ${{ secrets.SSH_KEY }}
-        context: infra
+        context: .
+        file: yamdb_final/infra/docker-compose.yaml
         script: |
             sudo docker-compose stop
             sudo docker-compose rm web
