@@ -11,6 +11,7 @@ services:
 
   # web container
   web:
+    build: .
     image: teacea/yamdb_final:latest
     restart: always
     volumes:
