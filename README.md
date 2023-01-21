@@ -47,4 +47,5 @@ SSH_KEY- ssh key вашего компьютера
 TELEGRAM_TO-ваш телеграм id
 TELEGRAM_TOKEN-телеграм токен вашего бота для уведомления
 
+https://github.com/teacea/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
 
