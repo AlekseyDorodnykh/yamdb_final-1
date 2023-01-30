@@ -44,7 +44,7 @@ jobs:
           file: api_yamdb/Dockerfile
           context: api_yamdb/
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest 
+          tags: teacea/api_yamdb:latest 
 
   deploy:
     runs-on: ubuntu-latest
