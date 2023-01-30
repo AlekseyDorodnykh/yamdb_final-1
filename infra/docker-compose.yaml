@@ -1,17 +1,21 @@
 version: '3.8'
 
 services:
-  # db container
   db:
     image: postgres:13.0-alpine
+    container_name: postgres13
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - /var/lib/postgresql/data/
     env_file:
       - ./.env
 
-  # web container
   web:
-    image: teacea/yamdb_final:latest
+    container_name: web
+    image: teacea/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -21,8 +25,8 @@ services:
     env_file:
       - ./.env
 
-  # nginx container
   nginx:
+    container_name: nginx
     image: nginx:1.21.3-alpine
     ports:
       - "80:80"
@@ -36,4 +40,3 @@ services:
 volumes:
   static_value:
   media_value:
-
