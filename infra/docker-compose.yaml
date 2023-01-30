@@ -11,10 +11,9 @@ services:
 
   # web container
   web:
-    build: 
-      context: api_yamdb
-      dockerfile: Dockerfile
-    image: teacea/yamdb_final:latest
+    build:
+      context: ../
+      dockerfile: api_yamdb/Dockerfile
     restart: always
     volumes:
       - static_value:/app/api_yamdb/static/
