@@ -1,26 +1,24 @@
+![workflow status](https://github.com/teacea/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 Это итоговый проект 16-го спринта.
 Задача: автотест на гитхаб экшн.
 Для развертывания проекта:
 1.установите docker и docker-compose последней версии
-2.перейдите в папку infra_sp2/infra и создайте файл .env
-Шаблон для заполнения :
-SECRET_KEY ='секретный ключ джанго проекта из settings.py'
+2.перейдите в настройки гитхаба и создайте секретные ключи:
+
 DB_ENGINE=django.db.backends.postgresql
 DB_NAME=postgres 
 POSTGRES_USER= логин_для_пользователя
 POSTGRES_PASSWORD= пароль_для_пользователя
 DB_HOST=db
 DB_PORT=5432
-DEBUG=FALSE
-
-далее откройте терминал, перейдите в папку infra_sp2/infra и пропишите команды:
+далее откройте терминал, перейдите в папку yamdb_final/infra и пропишите команды:
 docker-compose up
 docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 docker-compose exec web python manage.py collectstatic --no-input 
 если имеется бд:
-положить файл .json в папку infra_sp2/api_yamdb
-docker-compose exec web python manage.py loaddata NAME_OF_FILE.json
+sudo docker cp путь_на_сервере/fixture.json контейнер:путь_в_контейнере/fixture.json
+sudo docker-compose exec web python manage.py loaddata fixtures2.json
 
 
 автотест:
@@ -47,6 +45,5 @@ SSH_KEY- ssh key вашего компьютера
 TELEGRAM_TO-ваш телеграм id
 TELEGRAM_TOKEN-телеграм токен вашего бота для уведомления
 
-https://github.com/teacea/yamdb_final/workflows/yamdb_workflow.yaml/badge.svg
 
 проект развернут на 158.160.33.128/api/v1/
